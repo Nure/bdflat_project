@@ -20,13 +20,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'e4be6ut3*6xr4e6+55h@c_ua6z-zt!1261=li_%%i)xwx$$x(!'
+# SECRET_KEY = 'e4be6ut3*6xr4e6+55h@c_ua6z-zt!1261=li_%%i)xwx$$x(!'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['nuredjangoapp.herokuapp.com']
 
 
 # Application definition
@@ -126,7 +127,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'bdapt/static')
@@ -149,5 +150,5 @@ MESSAGE_TAGS = {
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'nalamsiddiq@gmail.com'
-EMAIL_HOST_PASSWORD = 'mimmolmamrupaamma'
+EMAIL_HOST_PASSWORD = 'xyx'
 EMAIL_USE_TLS = True
