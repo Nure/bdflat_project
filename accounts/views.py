@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
+from contacts.models import Contact
 # Create your views here.
 def register(request):
   if request.method == 'POST':
@@ -25,14 +26,6 @@ def register(request):
           return redirect('register')
         else:
           user = User.objects.create_user(username=username, password=password, email=email, first_name=first_name, last_name=last_name)
-
-          # if you want to login after registration,
-          # ----------------------------------
-          # from django.contrib import auth
-          # auth.login(request, user)
-          # messages.success(request, 'You are successfully signed up, loggedin!')
-          # return redirect('/')
-          # ------------------------------------
 
           user.save()
           messages.success(request, 'You are successfully SignedUp, please login now!')
@@ -67,4 +60,8 @@ def logout(request):
     return redirect('index')
 
 def dashboard(request):
-  return render(request, 'accounts/dashboard.html')
+  user_contact = Contact.objects.order_by('-contact_date').filter(user_id=request.user.id)
+  context = {
+    'contacts': user_contact
+  }
+  return render(request, 'accounts/dashboard.html', context)

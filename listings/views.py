@@ -17,7 +17,7 @@ def index(request):
       'listings': paged_listings,
       'price_choices': price_choices,
       'bedroom_choices': bedroom_choices,
-      'division_choices': division_choices,
+      'division_choices': division_choices
   }
   return render(request, 'listings/listings.html', context)
 
@@ -62,9 +62,9 @@ def search(request):
     if price:
       query_list = query_list.filter(price__lte=price)
   context = {
+    'division_choices': division_choices,
     'price_choices': price_choices,
     'bedroom_choices': bedroom_choices,
-    'division_choices': division_choices,
     'listings' : query_list,
     'values' : request.GET
   }

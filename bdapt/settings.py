@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'listings.apps.ListingsConfig',
     'agents.apps.AgentsConfig',
     'accounts.apps.AccountsConfig',
+    'contacts.apps.ContactsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -141,5 +142,11 @@ MEDIA_URL = '/media/'
 from django.contrib.messages import constants as messages
 MESSAGE_TAGS = {
     messages.ERROR: 'danger'
-    
 }
+
+# email config
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'nalamsiddiq@gmail.com'
+EMAIL_HOST_PASSWORD = 'mimmolmamrupaamma'
+EMAIL_USE_TLS = True
