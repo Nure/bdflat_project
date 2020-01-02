@@ -12,16 +12,15 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 
-import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = 'e4be6ut3*6xr4e6+55h@c_ua6z-zt!1261=li_%%i)xwx$$x(!'
 
-DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+DEBUG = True
 
-ALLOWED_HOSTS = ['nuredjangoapp.herokuapp.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -79,8 +78,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'bdapartments',
-        'USER': 'xyg',
-        'PASSWORD': 'xyg',
+        'USER': 'postgres',
+        'PASSWORD': 'qwe123qwe',
         'HOST': 'localhost'
     }
 }
@@ -121,7 +120,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'bdapt/static')
@@ -147,5 +145,3 @@ EMAIL_HOST_USER = 'nalamsiddiq@gmail.com'
 EMAIL_HOST_PASSWORD = 'xyx'
 EMAIL_USE_TLS = True
 
-#Heroku
-django_heroku.settings(locals())
