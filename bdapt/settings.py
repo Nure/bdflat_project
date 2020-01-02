@@ -17,16 +17,8 @@ import django_heroku
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'e4be6ut3*6xr4e6+55h@c_ua6z-zt!1261=li_%%i)xwx$$x(!'
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 ALLOWED_HOSTS = ['nuredjangoapp.herokuapp.com']
@@ -87,8 +79,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'bdapartments',
-        'USER': 'postgres',
-        'PASSWORD': 'qwe123qwe',
+        'USER': 'xyg',
+        'PASSWORD': 'xyg',
         'HOST': 'localhost'
     }
 }
@@ -155,5 +147,5 @@ EMAIL_HOST_USER = 'nalamsiddiq@gmail.com'
 EMAIL_HOST_PASSWORD = 'xyx'
 EMAIL_USE_TLS = True
 
-
+#Heroku
 django_heroku.settings(locals())
